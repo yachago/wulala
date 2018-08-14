@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+     <class name="enitity.Project" table="project">
+     <!-- 主键关系 -->
+     <id name="proId" column="pro_id" type="java.lang.Integer">
+      <generator class="assigned"/>
+      </id>
+      <property name="proName" column="pro_name" type="java.lang.String"/>
+      <property name="proLoc" column="pro_loc" type="java.lang.String"/>
+      <!-- 一对多配置，配置一个集合users作为dept的属性，自动封装 -->
+     <set name="epms" table="t_mid" cascade="save-update"  >
+        <key column="pro_id"></key>
+       <many-to-many class="enitity.Emp" column="emp_id"></many-to-many>
+     </set>
+     </class>
+</hibernate-mapping>

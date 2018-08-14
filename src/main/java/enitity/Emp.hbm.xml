@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+     <class name="enitity.Emp" table="emp">
+     <!-- 主键关系 -->
+     <id name="empId" column="emp_id" type="java.lang.Integer">
+      <generator class="assigned"/>
+      </id>
+      <property name="empName" column="emp_Name" type="java.lang.String"/>
+      <property name="empAge" column="emp_Age" type="java.lang.Integer"/>
+      <property name="hireDate" column="hireDate" type="java.util.Date"/>
+      <!-- 一对多配置，配置一个集合users作为dept的属性，自动封装 -->
+     <set name="projects"  table="t_mid" inverse="true">
+        <key column="emp_id"></key>
+       <many-to-many class="enitity.Project" column="pro_id"></many-to-many>
+     </set>
+     </class>
+</hibernate-mapping>

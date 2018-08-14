@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+     <class name="enitity.Dept" table="dept">
+     <!-- 主键关系 -->
+     <id name="deptno" column="deptno" type="java.lang.Integer">
+      <generator class="native"/>
+      </id>
+      <property name="deptName" column="deptName" type="java.lang.String"/>
+      <property name="deptDesc" column="deptDesc" type="java.lang.String"/>
+      <!-- 一对多配置，配置一个集合users作为dept的属性，自动封装 -->
+     <set name="users" cascade="save-update">
+        <key column="deptno"></key>
+        <one-to-many class="enitity.User"/>
+     </set>
+     </class>
+</hibernate-mapping>

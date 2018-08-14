@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+     <class name="enitity.Area" table="area">
+     <!-- 主键关系 -->
+     <id name="id" column="id" type="java.lang.Integer">
+      <generator class="native"/>
+      </id>
+      <property name="name" column="name" type="java.lang.String"/>
+      <property name="areaLevel" column="arealevel" type="java.lang.Integer"/>
+      <property name="parent_id" column="parent_id" type="java.lang.Integer"/>
+      <!-- 多对一配置，配置一个属性deptno作为连接 name与user类中属性相对应-->
+      
+   
+     </class>
+</hibernate-mapping>

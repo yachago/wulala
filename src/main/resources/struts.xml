@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="fix" namespace="/" extends="struts-default">
+    
+        <default-action-ref name="defaut"/>
+        <action name="defaut" >
+            <result >/404.jsp</result>
+        </action>
+        <!-- 三种方法 -->
+        <action name="all" class="action.EmpAction" method="getAllEmp">
+            <result name="success">/hello.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        
+        <action name="find" class="action.EmpAction" method="chooseGet">
+            <result name="success">/index.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        
+        
+        
+    </package>
+ 
+
+</struts>
